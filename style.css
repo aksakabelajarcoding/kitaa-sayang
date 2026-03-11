@@ -1,4 +1,4 @@
-/* --- CSS AESTHETIC PINK & RED --- */
+/* --- CSS Final: Gacor & Aesthetic --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animasi Hati Melayang di Background */
+/* Background Hearts */
 body::before {
     content: "❤️";
     position: fixed;
@@ -43,63 +43,67 @@ body::before {
     transition: 0.3s;
 }
 
-.glass-card:hover { transform: translateY(-5px); }
-
-/* Header */
 .days-counter {
     font-size: 2.2rem; font-weight: 600;
     background: linear-gradient(45deg, #ff1744, #f48fb1);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-/* Foto Profile */
+/* Photo */
 .photo-container { display: flex; align-items: center; justify-content: space-around; margin: 15px 0; }
 .photo-item img {
-    width: 110px; height: 110px; object-fit: cover;
+    width: 105px; height: 105px; object-fit: cover;
     border-radius: 50%; border: 4px solid #fff;
     box-shadow: 0 8px 20px rgba(236, 64, 122, 0.3);
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.4s;
 }
 .photo-item img:hover { transform: scale(1.1) rotate(5deg); }
 .heart-icon { font-size: 2.5rem; color: #ff1744; animation: heartbeat 1.2s infinite; }
 
 /* Vinyl Music */
-.vinyl-container { position: relative; width: 150px; height: 150px; margin: 0 auto 15px; }
+.vinyl-container { position: relative; width: 140px; height: 140px; margin: 0 auto 15px; }
 .vinyl {
     width: 100%; height: 100%;
     background: radial-gradient(circle, #333 30%, #111 100%);
     border-radius: 50%; border: 5px solid #ad1457;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 .vinyl.playing { animation: rotateVinyl 3s linear infinite; }
-.vinyl-label { width: 50px; height: 50px; background: #ff4081; border-radius: 50%; border: 3px solid #fff; }
+.vinyl-label { width: 45px; height: 45px; background: #ff4081; border-radius: 50%; border: 3px solid #fff; }
 
-.playlist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
 .btn-music {
-    background: #fff; border: 2px solid #f48fb1; padding: 8px;
-    border-radius: 12px; color: #ad1457; font-weight: 600; cursor: pointer; transition: 0.3s;
+    background: #fff; border: 2px solid #f48fb1; padding: 8px; width: 100%;
+    border-radius: 12px; color: #ad1457; font-weight: 600; cursor: pointer; transition: 0.3s; margin: 4px 0;
 }
 .btn-music:hover { background: #ff1744; color: #fff; border-color: #ff1744; }
 
-/* Pet SatYu (Live Animation) */
-.pet-container { height: 120px; display: flex; justify-content: center; align-items: center; position: relative; cursor: pointer; }
-.cat-alive { font-size: 75px; animation: breathing 3s ease-in-out infinite; transition: 0.3s; }
-.cat-eat { animation: eating 0.5s ease-in-out 3; }
+/* --- LIVE PET SATYU CSS ART (HD & RESPONSIVE) --- */
+.pet-container { height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; cursor: pointer; }
+#floating-emoji { position: absolute; font-size: 35px; opacity: 0; z-index: 5; pointer-events: none; }
+
+.cat-wrapper { position: relative; width: 80px; transition: 0.3s; animation: breathing 3s ease-in-out infinite; }
+.cat-head { width: 60px; height: 50px; background: #555; border-radius: 50% 50% 45% 45%; margin: 0 auto; position: relative; z-index: 2; }
+.ear { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid #555; position: absolute; top: -10px; }
+.ear.left { left: 5px; transform: rotate(-20deg); } .ear.right { right: 5px; transform: rotate(20deg); }
+.eye { width: 12px; height: 12px; background: #fff; border-radius: 50%; position: relative; transition: 0.2s; }
+.pupil { width: 6px; height: 6px; background: #000; border-radius: 50%; position: absolute; left: 3px; top: 3px; }
+.cat-eyes { display: flex; justify-content: space-around; padding-top: 15px; }
+.cat-nose { width: 6px; height: 4px; background: #ffb7c5; border-radius: 50%; margin: 2px auto; }
+.cat-mouth { width: 10px; height: 5px; border-bottom: 2px solid #fff; border-radius: 0 0 50% 50%; margin: 0 auto; }
+.cat-torso { width: 70px; height: 60px; background: #555; border-radius: 50% 50% 30% 30%; margin: -15px auto 0; }
+.cat-tail { width: 40px; height: 10px; background: #444; border-radius: 10px; position: absolute; bottom: 5px; right: -20px; transform-origin: left; animation: tailWag 2s ease-in-out infinite; }
+
+/* Saat disentuh (Elus), matanya merem */
+.pet-container:active .eye { height: 2px; margin-top: 5px; background: #555; border-bottom: 2px solid #fff; }
+
+@keyframes tailWag { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(30deg); } }
+@keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03) translateY(-2px); } }
+@keyframes floatUp { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-70px); opacity: 0; } }
 
 .btn-pet { padding: 10px 18px; border-radius: 20px; border: none; color: #fff; font-weight: bold; cursor: pointer; margin: 5px; transition: 0.3s; }
-.btn-red { background: #ff1744; box-shadow: 0 4px 10px rgba(255, 23, 68, 0.2); } 
-.btn-pink { background: #f48fb1; box-shadow: 0 4px 10px rgba(244, 143, 177, 0.2); }
-#floating-emoji { position: absolute; font-size: 35px; opacity: 0; pointer-events: none; }
+.btn-red { background: #ff1744; box-shadow: 0 4px 10px rgba(255, 23, 68, 0.2); } .btn-pink { background: #f48fb1; box-shadow: 0 4px 10px rgba(244, 143, 177, 0.2); }
+.btn-pet:hover { transform: scale(1.1); filter: brightness(1.1); }
 
-/* Calculator & Buttons */
 #calc-display { width: 100%; border-radius: 12px; border: 2px solid #f48fb1; padding: 12px; margin-bottom: 12px; text-align: center; color: #ad1457; font-weight: 600; font-family: 'Poppins'; }
 .btn-main { background: linear-gradient(45deg, #ff1744, #d81b60); color: #fff; border: none; padding: 14px; border-radius: 18px; width: 100%; cursor: pointer; font-weight: 600; transition: 0.3s; }
 .btn-main:hover { transform: scale(1.02); filter: brightness(1.1); }
-
-/* Animations */
-@keyframes rotateVinyl { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-@keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-@keyframes eating { 0%, 100% { transform: scale(1); rotate(0); } 50% { transform: scale(1.2) rotate(10deg); } }
-@keyframes floatUp { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-60px); opacity: 0; } }
