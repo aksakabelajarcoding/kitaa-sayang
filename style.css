@@ -1,277 +1,105 @@
-/* Import Font Poppins biar modern dan gak kaku */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- CSS AESTHETIC PINK & RED --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    /* Gradasi Soft Pink ke Putih, bikin kesan dreamy */
     background: linear-gradient(135deg, #fce4ec 0%, #ffebee 50%, #ffffff 100%);
     background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
-    color: #880e4f; /* Warna teks utama (Deep Pink) */
+    color: #880e4f;
     display: flex;
     justify-content: center;
     padding: 20px;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.container {
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px; /* Jarak antar kartu lebih lega */
-    padding-bottom: 50px;
+/* Animasi Hati Melayang di Background */
+body::before {
+    content: "❤️";
+    position: fixed;
+    top: -10%; left: 10%;
+    font-size: 20px; opacity: 0.15;
+    animation: floatAround 10s linear infinite;
+    z-index: -1;
 }
 
-/* --- Gaya Kartu Glassmorphism yang Lebih Halus --- */
+@keyframes floatAround {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0.2; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+.container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 20px; }
+
 .glass-card {
-    background: rgba(255, 255, 255, 0.5); /* Lebih transparan */
-    backdrop-filter: blur(15px); /* Efek blur lebih terasa */
-    border-radius: 30px; /* Sudut lebih bulat (gak kaku) */
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
     padding: 25px;
     border: 1px solid rgba(255, 255, 255, 0.7);
-    /* Shadow lembut warna pink */
     box-shadow: 0 15px 35px rgba(244, 143, 177, 0.25);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efek sedikit melayang pas di-hover */
-.glass-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(244, 143, 177, 0.35);
-}
-
-/* --- Header Section --- */
-.title {
-    font-weight: 600;
-    font-size: 1.8rem;
-    color: #c2185b; /* Merah cerah sedikit gelap */
-    margin-bottom: 5px;
-    letter-spacing: -1px;
-}
-
-.days-counter {
-    font-size: 2.2rem;
-    font-weight: 600;
-    background: linear-gradient(45deg, #ff1744, #f48fb1); /* Gradasi Merah Cerah ke Soft Pink */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 10px 0;
-}
-
-.date-text {
-    font-size: 0.9rem;
-    color: #ad1457;
-    opacity: 0.8;
-}
-
-/* --- Photo Section --- */
-.photo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin: 15px 0;
-}
-
-.photo-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.photo-item img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 50%; /* Bulat sempurna */
-    border: 5px solid #ffffff; /* Bingkai putih tebal biar pop out */
-    box-shadow: 0 8px 20px rgba(236, 64, 122, 0.3);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Efek putar sedikit pas hover */
-.photo-item img:hover {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.photo-item span {
-    margin-top: 10px;
-    font-weight: 600;
-    font-size: 0.95em;
-    color: #ad1457;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 2px 10px;
-    border-radius: 10px;
-}
-
-.heart-icon {
-    font-size: 2.5rem;
-    color: #ff1744; /* Merah Cerah */
-    animation: heartbeat 1.5s infinite;
-    text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
-}
-
-.caption {
-    font-style: italic;
-    font-size: 0.9rem;
-    color: #d81b60;
-    margin-top: 10px;
-}
-
-/* --- Music Section --- */
-.cassette-container {
-    perspective: 1000px; /* Efek 3D */
-    margin-bottom: 20px;
-}
-
-.cassette {
-    width: 170px;
-    height: 105px;
-    background: linear-gradient(135deg, #ff4081, #ec407a); /* Gradasi Merah/Pink */
-    margin: 0 auto;
-    border-radius: 15px;
     position: relative;
-    border: 5px solid #ad1457;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    animation: rotateCassette 5s linear infinite;
-    animation-play-state: paused;
-}
-
-.cassette.playing {
-    animation-play-state: running;
-}
-
-.cassette-label {
-    background: #ffffff;
-    margin: 12px;
-    font-size: 11px;
-    border-radius: 5px;
-    color: #ad1457;
-    padding: 3px;
-    font-weight: 600;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    transition: 0.3s;
 }
 
-.tape-hole {
-    width: 28px;
-    height: 28px;
-    background: #ffebee;
-    border-radius: 50%;
-    position: absolute;
-    top: 42px;
-    border: 3px dashed #ad1457;
+.glass-card:hover { transform: translateY(-5px); }
+
+/* Header */
+.days-counter {
+    font-size: 2.2rem; font-weight: 600;
+    background: linear-gradient(45deg, #ff1744, #f48fb1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-.left { left: 28px; }
-.right { right: 28px; }
-
-/* Playlist */
-.playlist-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+/* Foto Profile */
+.photo-container { display: flex; align-items: center; justify-content: space-around; margin: 15px 0; }
+.photo-item img {
+    width: 110px; height: 110px; object-fit: cover;
+    border-radius: 50%; border: 4px solid #fff;
+    box-shadow: 0 8px 20px rgba(236, 64, 122, 0.3);
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+.photo-item img:hover { transform: scale(1.1) rotate(5deg); }
+.heart-icon { font-size: 2.5rem; color: #ff1744; animation: heartbeat 1.2s infinite; }
 
-h4 {
-    font-size: 0.85rem;
-    color: #ad1457;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Vinyl Music */
+.vinyl-container { position: relative; width: 150px; height: 150px; margin: 0 auto 15px; }
+.vinyl {
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #333 30%, #111 100%);
+    border-radius: 50%; border: 5px solid #ad1457;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+.vinyl.playing { animation: rotateVinyl 3s linear infinite; }
+.vinyl-label { width: 50px; height: 50px; background: #ff4081; border-radius: 50%; border: 3px solid #fff; }
 
+.playlist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
 .btn-music {
-    background: #ffffff;
-    border: 2px solid #f48fb1; /* Border Soft Pink */
-    width: 100%;
-    padding: 10px;
-    border-radius: 15px; /* Bulat (gak kaku) */
-    margin: 5px 0;
-    cursor: pointer;
-    color: #ad1457;
-    font-weight: 600;
-    font-size: 0.8rem;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(244, 143, 177, 0.15);
+    background: #fff; border: 2px solid #f48fb1; padding: 8px;
+    border-radius: 12px; color: #ad1457; font-weight: 600; cursor: pointer; transition: 0.3s;
 }
+.btn-music:hover { background: #ff1744; color: #fff; border-color: #ff1744; }
 
-/* Hover: Tombol jadi Merah Cerah */
-.btn-music:hover {
-    background: #ff1744;
-    border-color: #ff1744;
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(255, 23, 68, 0.3);
-}
+/* Pet SatYu (Live Animation) */
+.pet-container { height: 120px; display: flex; justify-content: center; align-items: center; position: relative; cursor: pointer; }
+.cat-alive { font-size: 75px; animation: breathing 3s ease-in-out infinite; transition: 0.3s; }
+.cat-eat { animation: eating 0.5s ease-in-out 3; }
 
-/* --- Calculator Section --- */
-.calc-box {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
-}
+.btn-pet { padding: 10px 18px; border-radius: 20px; border: none; color: #fff; font-weight: bold; cursor: pointer; margin: 5px; transition: 0.3s; }
+.btn-red { background: #ff1744; box-shadow: 0 4px 10px rgba(255, 23, 68, 0.2); } 
+.btn-pink { background: #f48fb1; box-shadow: 0 4px 10px rgba(244, 143, 177, 0.2); }
+#floating-emoji { position: absolute; font-size: 35px; opacity: 0; pointer-events: none; }
 
-#calc-display {
-    width: 100%;
-    border-radius: 15px;
-    border: 2px solid #f48fb1;
-    padding: 12px;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.8);
-    color: #ad1457;
-    font-weight: 600;
-}
+/* Calculator & Buttons */
+#calc-display { width: 100%; border-radius: 12px; border: 2px solid #f48fb1; padding: 12px; margin-bottom: 12px; text-align: center; color: #ad1457; font-weight: 600; font-family: 'Poppins'; }
+.btn-main { background: linear-gradient(45deg, #ff1744, #d81b60); color: #fff; border: none; padding: 14px; border-radius: 18px; width: 100%; cursor: pointer; font-weight: 600; transition: 0.3s; }
+.btn-main:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-#calc-display::placeholder {
-    color: #f48fb1;
-    font-weight: 400;
-}
-
-.btn-calc {
-    background: linear-gradient(45deg, #ff1744, #d81b60); /* Gradasi Merah */
-    color: #ffffff;
-    border: none;
-    padding: 12px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 23, 68, 0.3);
-}
-
-.btn-calc:hover {
-    letter-spacing: 1px; /* Efek teks meregang sedikit */
-    box-shadow: 0 8px 20px rgba(255, 23, 68, 0.4);
-}
-
-/* --- Animations --- */
-@keyframes rotateCassette {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes heartbeat {
-    0% { transform: scale(1); text-shadow: 0 0 5px rgba(255, 23, 68, 0.3); }
-    50% { transform: scale(1.15); text-shadow: 0 0 15px rgba(255, 23, 68, 0.6); }
-    100% { transform: scale(1); text-shadow: 0 0 5px rgba(255, 23, 68, 0.3); }
-}
-
-/* Responsive biar di HP makin cantik */
-@media (max-width: 375px) {
-    .photo-item img { width: 90px; height: 90px; }
-    .title { font-size: 1.5rem; }
-    .days-counter { font-size: 1.8rem; }
-}
+/* Animations */
+@keyframes rotateVinyl { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+@keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+@keyframes eating { 0%, 100% { transform: scale(1); rotate(0); } 50% { transform: scale(1.2) rotate(10deg); } }
+@keyframes floatUp { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-60px); opacity: 0; } }
