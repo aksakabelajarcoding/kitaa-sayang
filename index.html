@@ -47,22 +47,39 @@
             <div class="playlist-col">
                 <p style="font-size: 0.7rem;">🎧 SATRIA'S FAVES</p>
                 <button class="btn-music" onclick="playMusic('https://files.catbox.moe/8rjj1f.m4a', 'Kota Ini')">Kota Ini</button>
-                <button class="btn-music" onclick="playMusic('https://files.catbox.moe/mqv2u8.mp3', 'Bahagia Lagi')">Bahagia</button>
+                <button class="btn-music" onclick="playMusic('https://files.catbox.moe/mqv2u8.mp3', 'Bahagia Lagi')">Bahagia Lagi</button>
             </div>
         </div>
         <audio id="audio-player"></audio>
     </section>
 
-    <section class="glass-card">
+    <section class="glass-card pet-section">
         <h3>SatYu si Anabul 🐾</h3>
-        <div class="pet-container" onclick="petCare()">
-            <div id="pet-character" class="cat-alive">🐱</div>
+        <div class="pet-container" id="pet-area">
             <div id="floating-emoji"></div>
+            <div class="cat-wrapper" id="cat-body">
+                <div class="cat-head">
+                    <div class="ears">
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
+                    </div>
+                    <div class="cat-face">
+                        <div class="cat-eyes">
+                            <div class="eye"><div class="pupil"></div></div>
+                            <div class="eye"><div class="pupil"></div></div>
+                        </div>
+                        <div class="cat-nose"></div>
+                        <div class="cat-mouth"></div>
+                    </div>
+                </div>
+                <div class="cat-torso"></div>
+                <div class="cat-tail" id="tail"></div>
+            </div>
         </div>
-        <p id="pet-status" style="font-size: 0.9rem; font-weight: 600;">SatYu lagi manja...</p>
+        <p id="pet-status">Sentuh SatYu untuk elus! 🐱</p>
         <div style="margin-top: 10px;">
             <button class="btn-pet btn-red" onclick="feedPet()">KASIH MAKAN 🐟</button>
-            <button class="btn-pet btn-pink" onclick="playPet()">ELUS-ELUS ✨</button>
+            <button class="btn-pet btn-pink" onclick="playPet()">AJAK MAIN ✨</button>
         </div>
     </section>
 
@@ -72,8 +89,8 @@
         <button class="btn-main" onclick="calculateLove()">HITUNG CINTA</button>
     </section>
 
-    <section class="glass-card">
-        <button class="btn-main" onclick="toggleSecret()">Buka Pesan Rahasia Ayu 💌</button>
+    <section class="glass-card secret-card">
+        <button class="btn-secret" onclick="toggleSecret()">Buka Pesan Rahasia Ayu 💌</button>
         <div id="secret-content" style="display: none; margin-top: 15px;">
             <p style="font-style: italic; font-size: 0.9rem;">"Ayu, makasih ya udah nemenin Satria sejauh ini. Kamu itu bagian terbaik dari hidup aku. Love you more! ❤️"</p>
         </div>
