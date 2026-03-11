@@ -3,66 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satria & Ayu Forever</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Satria & Ayu: Our Secret World</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <section class="glass-card header">
-            <h1 class="title">Together Forever</h1>
-            <div id="countdown" class="days-counter">Menghitung hari...</div>
-            <p class="date-text">Sejak 1 November 2025</p>
-        </section>
 
-        <section class="glass-card photo-section">
-            <div class="photo-container">
-                <div class="photo-item">
-                    <img src="https://files.catbox.moe/4r50v9.jpeg" alt="Satria">
-                    <span>Satria</span>
-                </div>
-                <div class="heart-icon">❤️</div>
-                <div class="photo-item">
-                    <img src="https://files.catbox.moe/cagb4t.jpg" alt="Ayu">
-                    <span>Ayu</span>
-                </div>
-            </div>
-            <p class="caption">"Takdir mempertemukan kita."</p>
-        </section>
+<div class="container">
+    <section class="glass-card">
+        <h2 style="font-size: 1.2rem;">Together Forever</h2>
+        <div id="countdown" class="days-counter">Menghitung...</div>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Sejak 1 November 2025</p>
+    </section>
 
-        <section class="glass-card music-section">
-            <div class="cassette-container">
-                <div class="cassette" id="cassette">
-                    <div class="cassette-label" id="current-title">Pilih Lagu Kita...</div>
-                    <div class="tape-hole left"></div>
-                    <div class="tape-hole right"></div>
-                </div>
+    <section class="glass-card">
+        <div class="photo-container">
+            <div class="photo-item">
+                <img src="https://files.catbox.moe/4r50v9.jpeg" alt="Satria">
+                <p>Satria</p>
             </div>
-            
-            <div class="playlist-grid">
-                <div class="playlist-col">
-                    <h4>🎀 Ayu's Faves</h4>
-                    <button class="btn-music" onclick="playMusic('https://files.catbox.moe/bza5fc.mp3', 'Best Part')">Best Part</button>
-                    <button class="btn-music" onclick="playMusic('https://files.catbox.moe/frpeqg.mp3', 'Kiss It Better')">Kiss It Better</button>
-                </div>
-                <div class="playlist-col">
-                    <h4>🎧 Satria's Faves</h4>
-                    <button class="btn-music" onclick="playMusic('https://files.catbox.moe/8rjj1f.m4a', 'Kota Ini Tak Sama')">Kota Ini Tak Sama</button>
-                    <button class="btn-music" onclick="playMusic('https://files.catbox.moe/mqv2u8.mp3', 'Bahagia Lagi')">Bahagia Lagi</button>
-                </div>
+            <div class="heart-icon">❤️</div>
+            <div class="photo-item">
+                <img src="https://files.catbox.moe/cagb4t.jpg" alt="Ayu">
+                <p>Ayu</p>
             </div>
-            <audio id="audio-player"></audio>
-        </section>
+        </div>
+        <p class="caption">"Takdir mempertemukan kita."</p>
+    </section>
 
-        <section class="glass-card calculator">
-            <h3>Love Calculator</h3>
-            <div class="calc-box">
-                <input type="text" id="calc-display" placeholder="Satria + Ayu =" readonly>
-                <button class="btn-calc" onclick="calculateLove()">HITUNG</button>
+    <section class="glass-card">
+        <div class="vinyl-container">
+            <div class="vinyl" id="vinyl-disc">
+                <div class="vinyl-label"></div>
             </div>
-        </section>
-    </div>
+        </div>
+        <p id="current-title" style="font-size: 0.8rem; margin-bottom: 10px; font-weight: 600;">Pilih Lagu Kita...</p>
+        <div class="playlist-grid">
+            <div class="playlist-col">
+                <p style="font-size: 0.7rem;">🎀 AYU'S FAVES</p>
+                <button class="btn-music" onclick="playMusic('https://files.catbox.moe/bza5fc.mp3', 'Best Part')">Best Part</button>
+                <button class="btn-music" onclick="playMusic('https://files.catbox.moe/frpeqg.mp3', 'Kiss It')">Kiss It</button>
+            </div>
+            <div class="playlist-col">
+                <p style="font-size: 0.7rem;">🎧 SATRIA'S FAVES</p>
+                <button class="btn-music" onclick="playMusic('https://files.catbox.moe/8rjj1f.m4a', 'Kota Ini')">Kota Ini</button>
+                <button class="btn-music" onclick="playMusic('https://files.catbox.moe/mqv2u8.mp3', 'Bahagia Lagi')">Bahagia</button>
+            </div>
+        </div>
+        <audio id="audio-player"></audio>
+    </section>
 
-    <script src="script.js"></script>
+    <section class="glass-card">
+        <h3>SatYu si Anabul 🐾</h3>
+        <div class="pet-container" onclick="petCare()">
+            <div id="pet-character" class="cat-alive">🐱</div>
+            <div id="floating-emoji"></div>
+        </div>
+        <p id="pet-status" style="font-size: 0.9rem; font-weight: 600;">SatYu lagi manja...</p>
+        <div style="margin-top: 10px;">
+            <button class="btn-pet btn-red" onclick="feedPet()">KASIH MAKAN 🐟</button>
+            <button class="btn-pet btn-pink" onclick="playPet()">ELUS-ELUS ✨</button>
+        </div>
+    </section>
+
+    <section class="glass-card">
+        <h3>Love Calculator</h3>
+        <input type="text" id="calc-display" placeholder="Satria + Ayu =" readonly>
+        <button class="btn-main" onclick="calculateLove()">HITUNG CINTA</button>
+    </section>
+
+    <section class="glass-card">
+        <button class="btn-main" onclick="toggleSecret()">Buka Pesan Rahasia Ayu 💌</button>
+        <div id="secret-content" style="display: none; margin-top: 15px;">
+            <p style="font-style: italic; font-size: 0.9rem;">"Ayu, makasih ya udah nemenin Satria sejauh ini. Kamu itu bagian terbaik dari hidup aku. Love you more! ❤️"</p>
+        </div>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
